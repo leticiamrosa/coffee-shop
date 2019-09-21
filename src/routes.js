@@ -7,20 +7,22 @@ import Login from '~/pages/Login';
 // const Routes = createAppContainer(createSwitchNavigator({ Main }));
 
 const Routes = createAppContainer(
-  createStackNavigator(
-    {
-      Login,
-    },
-    {
-      headerLayoutPreset: 'center',
-      defaultNavigationOptions: {
-        headerTitle: 'Coffee',
-        headerStyle: {
-          backgroundColor: '#f5f5f5',
-        },
+  createStackNavigator({
+    Login: {
+      screen: Login,
+      navigationOptions: {
+        header: null,
+        // backgroundColor: '#161609',
       },
     },
-  ),
+    Main: {
+      screen: Main,
+      navigationOptions: {
+        // header: null
+        // backgroundColor: '#161609',
+      },
+    },
+  }),
 );
 
 export default Routes;

@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import {Container, Background} from './styles';
-import bg from '~/assets/bg.svg';
+import {
+  Container,
+  ButtonLogin,
+  ButtonLoginText,
+  ContentButtons,
+  Footer,
+  FooterText,
+  Logo,
+  ContentLogo,
+} from './styles';
 
 export default class Login extends Component {
   constructor(props) {
@@ -10,9 +17,32 @@ export default class Login extends Component {
   }
 
   render() {
+    const {navigation} = this.props;
+
     return (
       <Container>
-        <Background source={bg} />
+        <ContentLogo>
+          <Logo size={40}>COFFEE</Logo>
+          <Logo size={32}>SHOP DELIVERY</Logo>
+        </ContentLogo>
+        <ContentButtons>
+          <ButtonLogin
+            bgColor="#0D9F67"
+            onPress={() => {
+              navigation.navigate('Main', {
+                itemId: 86,
+                otherParam: 'anything you want here',
+              });
+            }}>
+            <ButtonLoginText>Sign Up</ButtonLoginText>
+          </ButtonLogin>
+          <ButtonLogin bgColor="#3B5998">
+            <ButtonLoginText>Sign in Facebook</ButtonLoginText>
+          </ButtonLogin>
+        </ContentButtons>
+        <Footer>
+          <FooterText>Already have account - Skip</FooterText>
+        </Footer>
       </Container>
     );
   }
