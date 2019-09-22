@@ -12,7 +12,7 @@ import {
 // import api from '~/services/api';
 import firebase from 'react-native-firebase';
 
-export default class Login extends Component {
+export default class WelcomeLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,9 +32,6 @@ export default class Login extends Component {
           <Logo size={32}>SHOP DELIVERY</Logo>
         </ContentLogo>
         <ContentButtons>
-          {firebase.database.nativeModuleExists && (
-            <ButtonLoginText>database()</ButtonLoginText>
-          )}
           <ButtonLogin
             bgColor="#0D9F67"
             onPress={() => {

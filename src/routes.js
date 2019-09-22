@@ -2,16 +2,16 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 // Login
-import Login from '~/pages/Login';
-import SignUp from '~/pages/SignUp';
-import SignUpForm from '~/pages/SignUp/SignUpForm';
+import WelcomeLogin from '~/pages/Login/WelcomeLogin';
+import SignUp from '~/pages/Login/SignUp';
+import Login from '~/pages/Login/Login';
 
 // const Routes = createAppContainer(createSwitchNavigator({ Main }));
 
 const Routes = createAppContainer(
   createStackNavigator({
-    Login: {
-      screen: Login,
+    WelcomeLogin: {
+      screen: WelcomeLogin,
       navigationOptions: {
         header: null,
       },
@@ -22,8 +22,8 @@ const Routes = createAppContainer(
         header: null,
       },
     },
-    SignUpForm: {
-      screen: SignUpForm,
+    Login: {
+      screen: Login,
       navigationOptions: {
         header: null,
       },

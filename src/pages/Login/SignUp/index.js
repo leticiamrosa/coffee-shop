@@ -24,23 +24,26 @@ export default class SignUp extends Component {
       password: null,
       username: null,
       name: null,
+      id: null,
     };
   }
 
   async componentDidMount() {}
 
   async writeUserData() {
-    const {name, username, email} = this.state;
+    const {name, username, email, id} = this.state;
+    const {navigation} = this.props;
     await firebase
       .database()
       .ref('Users/')
-      .set({
+      .push({
+        uid: id,
         first_name: name,
         email: email,
         username: username,
       })
-      .then(data => {
-        console.warn('data', data);
+      .then(() => {
+        navigation.navigate('Login');
       })
       .catch(error => {
         console.warn(error);
@@ -52,8 +55,11 @@ export default class SignUp extends Component {
     await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(response => {
-        console.warn(response.json());
+      .then(userCredential => {
+        // console.warn(userCredential.user.uid);
+        this.setState({
+          id: userCredential.user.uid,
+        });
       })
       .catch(error => {
         console.log(error);
@@ -131,11 +137,12 @@ export default class SignUp extends Component {
                 bgColor="#0D9F67"
                 margin="0"
                 onPress={async () => {
-                  // navigation.navigate('SignUpForm');
                   // this.setState({showForm: true, showButton: false});
                   await Promise.all([
                     this.handleSubmit(),
-                    this.writeUserData(),
+                    setTimeout(() => {
+                      this.writeUserData();
+                    }, 5000),
                   ]);
                 }}
               />
