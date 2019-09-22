@@ -9,8 +9,6 @@ import {
   Logo,
   ContentLogo,
 } from './styles';
-// import api from '~/services/api';
-import firebase from 'react-native-firebase';
 
 export default class WelcomeLogin extends Component {
   constructor(props) {
@@ -42,8 +40,10 @@ export default class WelcomeLogin extends Component {
             }}>
             <ButtonLoginText>Sign Up</ButtonLoginText>
           </ButtonLogin>
-          <ButtonLogin bgColor="#3B5998">
-            <ButtonLoginText>Sign in Facebook</ButtonLoginText>
+          <ButtonLogin
+            bgColor="#3B5998"
+            onPress={() => navigation.navigate('Login')}>
+            <ButtonLoginText>Sign In</ButtonLoginText>
           </ButtonLogin>
         </ContentButtons>
         <Footer>
