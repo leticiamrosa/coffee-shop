@@ -1,8 +1,10 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
-import Main from '~/pages/Main';
+// Login
 import Login from '~/pages/Login';
+import SignUp from '~/pages/SignUp';
+import SignUpForm from '~/pages/SignUp/SignUpForm';
 
 // const Routes = createAppContainer(createSwitchNavigator({ Main }));
 
@@ -12,14 +14,18 @@ const Routes = createAppContainer(
       screen: Login,
       navigationOptions: {
         header: null,
-        // backgroundColor: '#161609',
       },
     },
-    Main: {
-      screen: Main,
+    SignUp: {
+      screen: SignUp,
       navigationOptions: {
-        // header: null
-        // backgroundColor: '#161609',
+        header: null,
+      },
+    },
+    SignUpForm: {
+      screen: SignUpForm,
+      navigationOptions: {
+        header: null,
       },
     },
   }),

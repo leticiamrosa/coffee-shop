@@ -9,12 +9,18 @@ import {
   Logo,
   ContentLogo,
 } from './styles';
+// import api from '~/services/api';
+import firebase from 'react-native-firebase';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isAuthenticated: false,
+    };
   }
+
+  async componentDidMount() {}
 
   render() {
     const {navigation} = this.props;
@@ -26,10 +32,13 @@ export default class Login extends Component {
           <Logo size={32}>SHOP DELIVERY</Logo>
         </ContentLogo>
         <ContentButtons>
+          {firebase.database.nativeModuleExists && (
+            <ButtonLoginText>database()</ButtonLoginText>
+          )}
           <ButtonLogin
             bgColor="#0D9F67"
             onPress={() => {
-              navigation.navigate('Main', {
+              navigation.navigate('SignUp', {
                 itemId: 86,
                 otherParam: 'anything you want here',
               });

@@ -27,7 +27,16 @@ target 'CoffeeShop' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+
+   # [OPTIONAL PODS] - comment out pods for firebase products you won't be using.
+   pod 'Firebase/Core', '~> 6.8.1'
+   pod 'Firebase/Auth', '~> 6.8.1'
+   pod 'Firebase/Database', '~> 6.8.1'
+
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
+
 
   target 'CoffeeShopTests' do
     inherit! :search_paths
@@ -37,12 +46,3 @@ target 'CoffeeShop' do
   use_native_modules!
 end
 
-target 'CoffeeShop-tvOS' do
-  # Pods for CoffeeShop-tvOS
-
-  target 'CoffeeShop-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end
